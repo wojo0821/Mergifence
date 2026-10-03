@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private RectTransform rectTransform;
-    private Image image;
-    private Canvas parentCanvas;
+    protected RectTransform rectTransform;
+    protected Image image;
+    protected Canvas parentCanvas;
 
-    private Vector2 initialPosition;
+    protected Vector2 initialPosition;
 
-    private float outOfScreenOffset;
+    protected float outOfScreenOffset;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         image = GetComponent<Image>();
@@ -30,11 +30,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0.6f);
         image.raycastTarget = false;
     }
-    public void OnDrag(PointerEventData eventData)
+    public virtual void OnDrag(PointerEventData eventData)
     {
         rectTransform.anchoredPosition += eventData.delta / parentCanvas.scaleFactor;
     }
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
         image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
         image.raycastTarget = true;
