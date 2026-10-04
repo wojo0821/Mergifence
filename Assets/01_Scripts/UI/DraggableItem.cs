@@ -3,11 +3,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
 {
     protected RectTransform rectTransform;
     protected Image image;
     protected Canvas parentCanvas;
+
+    [SerializeField] private AudioClip clickSfx;
 
     protected Vector2 initialPosition;
 
@@ -19,6 +21,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         image = GetComponent<Image>();
         parentCanvas = GetComponentInParent<Canvas>();
         outOfScreenOffset = Screen.width * 0.02f;
+    }
+
+
+    //이미지 클릭시 바로 사운드 재생
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        AudioManager.Instance.PlaySfx(clickSfx);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
