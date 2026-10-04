@@ -4,7 +4,7 @@ public class AudioManager : MonoBehaviour
 {
     //싱글톤 오디오 매니저
     public static AudioManager Instance { get; private set; }
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource = null;
 
     private void Awake()
     {
