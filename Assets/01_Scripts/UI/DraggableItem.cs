@@ -33,6 +33,25 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         AudioManager.Instance.PlaySfx(clickSfx);
     }
 
+    public void SetText(string newText)
+    {
+        if (text == null && image != null)
+        {
+            text = image.GetComponentInChildren<TextMeshProUGUI>();
+        }
+        else if (text == null)
+        {
+            text = GetComponentInChildren<TextMeshProUGUI>();
+        }
+
+        if (text != null)
+        {
+            text.text = newText;
+        }
+
+        gameObject.name = newText;
+    }
+
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
         initialPosition = rectTransform.anchoredPosition;

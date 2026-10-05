@@ -18,6 +18,10 @@ public class TextImageWidthAuto : MonoBehaviour
     {
         InitComponents();
     }
+    private void Start()
+    {
+        UpdateWidth();
+    }
     private void Update()
     {
         if (Application.isPlaying) return;

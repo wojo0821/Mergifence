@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3988192289837209971}
   - component: {fileID: 7018709153199704873}
   - component: {fileID: 3663355381895324711}
+  - component: {fileID: -3809011876015283782}
   m_Layer: 5
   m_Name: MergeButton
   m_TagString: Untagged
@@ -76,6 +77,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-3809011876015283782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105662070333078905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3060605822587fe439e67bc07f6792c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MergeButton
+  mergeSfx: {fileID: 8300000, guid: 35b88809ad02b554688245b6090c7d8c, type: 3}
+  mergeableObjectPrefab: {fileID: 3999763245900961724, guid: 2747c0779de392844a0d5f02a06ca1af, type: 3}
+  mergeableNames: []
 --- !u!1 &2695690442836548267
 GameObject:
   m_ObjectHideFlags: 0
