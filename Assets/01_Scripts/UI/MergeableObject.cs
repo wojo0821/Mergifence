@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,20 +6,14 @@ public class MergeableObject : DraggableItem
 {
     private GameObject[] overlappedObjects;
 
-    [SerializeField] private GameObject mergeButton = null;
-    private GameObject installedButton;
-    private bool isButtonInstalled = false; //버튼이 설치 되있는가
-
     public override void OnPointerDown(PointerEventData eventData)
     {
         base.OnPointerDown(eventData);
-        UpdateMergeButton();
     }
 
     public override void OnDrag(PointerEventData eventData)
     {
         base.OnDrag(eventData);
-        UpdateMergeButton();
     }
     public GameObject[] GetOverlappedObject()
     {
@@ -44,52 +37,5 @@ public class MergeableObject : DraggableItem
             }
         }
         return targetList.ToArray(); // 겹친 오브젝트가 없음
-    }
-    public void DeleteMergeButton()
-    {
-        if (isButtonInstalled == true)
-        {
-            isButtonInstalled = false;
-            Destroy(installedButton);
-        }
-    }
-    void UpdateMergeButton()
-    {
-        List<string> namesList = new List<string>();
-        overlappedObjects = GetOverlappedObject();
-
-        if (overlappedObjects.Length > 1)
-        {
-            Vector3 sumPos = Vector3.zero;
-            foreach (GameObject overlappedObject in overlappedObjects)
-            {
-                if (!overlappedObject.transform.IsChildOf(transform))
-                {
-                    overlappedObject.GetComponent<MergeableObject>().DeleteMergeButton();
-                }
-                sumPos += overlappedObject.transform.position;
-                namesList.Add(overlappedObject.GetComponentInChildren<TextMeshProUGUI>().text);
-            }
-            Vector3 centerPos = sumPos / (overlappedObjects.Length);
-
-            if (isButtonInstalled == false)
-            {
-                isButtonInstalled = true;
-                installedButton = Instantiate(mergeButton, parentCanvas.transform);
-                installedButton.transform.SetAsLastSibling();
-                installedButton.GetComponent<MergeButton>().mergeableObjects = overlappedObjects;
-                installedButton.transform.position = centerPos;
-            }
-            else
-            {
-                installedButton.GetComponent<MergeButton>().mergeableObjects = overlappedObjects;
-                installedButton.transform.position = centerPos;
-                installedButton.transform.SetAsLastSibling();
-            }
-        }
-        else
-        {
-            DeleteMergeButton();
-        }
     }
 }

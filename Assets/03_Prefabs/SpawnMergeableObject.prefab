@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a3df755c68a84479df113ecdcfc51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnMergeableObject
-  clickSfx: {fileID: 8300000, guid: fd5306cb0f8076743bfb63ff814630f6, type: 3}
+  clickSfxDown: {fileID: 8300000, guid: 6f42c429d1600254ea9858a3e0af6e2d, type: 3}
+  clickSfxUp: {fileID: 8300000, guid: bb87922bc570e5b498b20f10cd61651e, type: 3}
   mergeableObjectPrefab: {fileID: 3999763245900961724, guid: 2747c0779de392844a0d5f02a06ca1af, type: 3}
   dropSfx: {fileID: 8300000, guid: 35b88809ad02b554688245b6090c7d8c, type: 3}

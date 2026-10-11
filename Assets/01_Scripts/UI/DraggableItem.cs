@@ -1,17 +1,19 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
+public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     protected RectTransform rectTransform;
     protected Image image;
     protected TextMeshProUGUI text;
     protected Canvas parentCanvas;
 
-    [SerializeField] private AudioClip clickSfx = null;
+    [SerializeField] private AudioClip clickSfxDown = null;
+    [SerializeField] private AudioClip clickSfxUp = null;
 
     protected Vector2 initialPosition;
 
@@ -30,7 +32,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //이미지 클릭시 바로 사운드 재생
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        AudioManager.Instance.PlaySfx(clickSfx);
+        AudioManager.Instance.PlaySfx(clickSfxDown);
+    }
+    public virtual void OnPointerUp(PointerEventData eventData)
+    {
+        AudioManager.Instance.PlaySfx(clickSfxUp);
     }
 
     public void SetText(string newText)
