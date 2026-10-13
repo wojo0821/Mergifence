@@ -5,15 +5,35 @@ using UnityEngine.EventSystems;
 public class MergeableObject : DraggableItem
 {
     private GameObject[] overlappedObjects;
+    private bool isMerging = false;
+    [SerializeField] private float mergingTime;
+    [SerializeField] private AudioClip mergingClip;
+    private float currentMergingTime;
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         base.OnPointerDown(eventData);
+
+        if (GetOverlappedObject().Length > 0)
+        {
+            isMerging = true;
+            AudioManager.Instance.PlayHoldSound(mergingClip);
+        }
     }
+    public override void OnPointerUp(PointerEventData eventData)
+    {
+        base.OnPointerUp(eventData);
+        isMerging = false;
+        AudioManager.Instance.StopHoldSound();
+    }
+
 
     public override void OnDrag(PointerEventData eventData)
     {
         base.OnDrag(eventData);
+
+        isMerging = false;
+        AudioManager.Instance.StopHoldSound();
     }
     public GameObject[] GetOverlappedObject()
     {
@@ -22,10 +42,11 @@ public class MergeableObject : DraggableItem
         Vector3[] myCorners = new Vector3[4];
         rectTransform.GetWorldCorners(myCorners);
         Rect myRect = new Rect(myCorners[0].x, myCorners[0].y, myCorners[2].x - myCorners[0].x, myCorners[2].y - myCorners[0].y);
-        // 2. 같은 캔버스 안에 있는 모든 MergeableObject들을 가져와서 하나씩 검사(본인도 포함)
+        // 2. 같은 캔버스 안에 있는 모든 MergeableObject들을 가져와서 하나씩 검사(본인은 제외)
         MergeableObject[] allObjects = parentCanvas.GetComponentsInChildren<MergeableObject>();
         foreach (MergeableObject targetObject in allObjects)
         {
+            if (targetObject == this) continue;
             // 상대방의 월드 사각형 구하기
             Vector3[] targetCorners = new Vector3[4];
             targetObject.rectTransform.GetWorldCorners(targetCorners);
@@ -37,5 +58,17 @@ public class MergeableObject : DraggableItem
             }
         }
         return targetList.ToArray(); // 겹친 오브젝트가 없음
+    }
+
+    private void Update()
+    {
+        if (!isMerging) return;
+
+        currentMergingTime += Time.deltaTime;
+
+        if (currentMergingTime >= mergingTime)
+        {
+            Debug.Log("합성");
+        }
     }
 }

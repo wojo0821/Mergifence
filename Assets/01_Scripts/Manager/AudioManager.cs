@@ -5,6 +5,7 @@ public class AudioManager : MonoBehaviour
     //싱글톤 오디오 매니저
     public static AudioManager Instance { get; private set; }
     [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private AudioSource holdSource = null;
 
     private void Awake()
     {
@@ -23,5 +24,19 @@ public class AudioManager : MonoBehaviour
     public void PlaySfx(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayHoldSound(AudioClip clip)
+    {
+        holdSource.clip = clip;
+        holdSource.Play();
+    }
+
+    public void StopHoldSound()
+    {
+        if (holdSource.isPlaying)
+        {
+            holdSource.Stop();
+        }
     }
 }
