@@ -69,6 +69,9 @@
     },
     "dotnet.defaultSolution": "Mergifence.slnx",
     "dotrush.roslyn.projectOrSolutionFiles": [
-        "c:\\Unity\\Projects\\Mergifence\\Mergifence.slnx"
+        "d:\\Unity\\Projects\\Mergifence\\Mergifence.slnx",
+        "d:\\Unity\\Projects\\Mergifence\\My project.slnx",
+        "d:\\Unity\\Projects\\Mergifence\\Assembly-CSharp.csproj",
+        "d:\\Unity\\Projects\\Mergifence\\Library\\PackageCache\\ai.undream.llm@2c30b44020c7\\LLMUnity.csproj"
     ]
 }

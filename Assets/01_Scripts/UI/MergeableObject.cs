@@ -6,8 +6,8 @@ public class MergeableObject : DraggableItem
 {
     private GameObject[] overlappedObjects;
     private bool isMerging = false;
-    [SerializeField] private float mergingTime;
-    [SerializeField] private AudioClip mergingClip;
+    [SerializeField] private float mergingTime = 0;
+    [SerializeField] private AudioClip mergingClip = null;
     private float currentMergingTime;
 
     public override void OnPointerDown(PointerEventData eventData)

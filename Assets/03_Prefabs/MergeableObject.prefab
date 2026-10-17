@@ -246,4 +246,4 @@ MonoBehaviour:
   clickSfxDown: {fileID: 8300000, guid: 6f42c429d1600254ea9858a3e0af6e2d, type: 3}
   clickSfxUp: {fileID: 8300000, guid: bb87922bc570e5b498b20f10cd61651e, type: 3}
   mergingTime: 0
-  mergingClip: {fileID: 8300000, guid: 9d346b6fc7ba81a47850276c0db4b002, type: 3}
+  mergingClip: {fileID: 8300000, guid: 0cda3f2c43602ea42bd2a82da9aae4ba, type: 3}

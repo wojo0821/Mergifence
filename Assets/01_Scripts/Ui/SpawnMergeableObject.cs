@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class SpawnMergeableObject : DraggableItem
 {
-    [SerializeField] private GameObject mergeableObjectPrefab;
+    [SerializeField] private GameObject mergeableObjectPrefab = null;
     [SerializeField] private AudioClip dropSfx = null;
 
     public override void OnEndDrag(PointerEventData eventData)

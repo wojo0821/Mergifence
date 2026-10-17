@@ -1064,6 +1064,7 @@ GameObject:
   - component: {fileID: 1556607243}
   - component: {fileID: 1556607242}
   - component: {fileID: 1556607246}
+  - component: {fileID: 1556607250}
   - component: {fileID: 1556607247}
   - component: {fileID: 1556607249}
   - component: {fileID: 1556607248}
@@ -1183,8 +1184,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990a416adf511f24e8f940b437bf1879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  audioSource: {fileID: 1556607242}
+  SfxSource: {fileID: 1556607242}
   holdSource: {fileID: 1556607246}
+  BgmSource: {fileID: 1556607250}
+  bgmClips:
+  - {fileID: 8300000, guid: 3e90330a07e979546a89f8245835c657, type: 3}
+  - {fileID: 8300000, guid: 7ac4009927dd3314380d109fb5fe01c5, type: 3}
+  - {fileID: 8300000, guid: 556e2ab180914e443a506325a9977dc7, type: 3}
+  - {fileID: 8300000, guid: 82864418850e4d84d8fe6e991794720a, type: 3}
+  - {fileID: 8300000, guid: f031a927a71bd024ba4b925513129c09, type: 3}
+  - {fileID: 8300000, guid: 05787de2bd29b2042ba3c88f91a3e6a8, type: 3}
 --- !u!4 &1556607244
 Transform:
   m_ObjectHideFlags: 0
@@ -1316,7 +1325,7 @@ MonoBehaviour:
   _SSLCert: 
   _SSLKey: 
   _numThreads: -1
-  _numGPULayers: 0
+  _numGPULayers: 99
   _parallelPrompts: 1
   _contextSize: 8192
   _batchSize: 512
@@ -1388,6 +1397,103 @@ MonoBehaviour:
   _slot: -1
   _systemPrompt: A chat between a curious human and an artificial intelligence assistant.
     The assistant gives helpful, detailed, and polite answers to the human's questions.
+--- !u!82 &1556607250
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556607241}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1637247274
 GameObject:
   m_ObjectHideFlags: 0
