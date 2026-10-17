@@ -64,8 +64,7 @@ public class AudioManager : MonoBehaviour
     }
     private int[] FisherYatesShuffle(int[] data)
     {
-        int length = data.Length;
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < data.Length; i++)
         {
             int randomIndex = Random.Range(i, length);
             int temp = data[i];
