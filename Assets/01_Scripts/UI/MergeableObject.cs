@@ -5,25 +5,22 @@ using UnityEngine.EventSystems;
 public class MergeableObject : DraggableItem
 {
     private GameObject[] overlappedObjects;
-    private bool isMerging = false;
+    private bool isUsing = false;
     [SerializeField] private float mergingTime = 0;
-    [SerializeField] private AudioClip mergingClip = null;
+    [SerializeField] private AudioClip objectUsingClip = null;
     private float currentMergingTime;
+    private GameObject currentOverlappedObject = null;
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         base.OnPointerDown(eventData);
-
-        if (GetOverlappedObject().Length > 0)
-        {
-            isMerging = true;
-            AudioManager.Instance.PlayHoldSound(mergingClip);
-        }
+        isUsing = true;
+        AudioManager.Instance.PlayHoldSound(objectUsingClip);
     }
     public override void OnPointerUp(PointerEventData eventData)
     {
         base.OnPointerUp(eventData);
-        isMerging = false;
+        isUsing = false;
         AudioManager.Instance.StopHoldSound();
     }
 
@@ -32,12 +29,37 @@ public class MergeableObject : DraggableItem
     {
         base.OnDrag(eventData);
 
-        isMerging = false;
+        isUsing = false;
         AudioManager.Instance.StopHoldSound();
+
+        // 한 번만 호출해서 변수에 담기
+        GameObject newOverlapped = GetOverlappedObject();
+        // 겹치는 대상이 바뀌었을 때만 스케일 처리 (A -> 없음, 없음 -> A, A -> B)
+        if (currentOverlappedObject != newOverlapped)
+        {
+            // 이전에 겹쳤던 대상은 원래 크기로 복구
+            if (currentOverlappedObject != null)
+            {
+                currentOverlappedObject.transform.localScale = Vector3.one;
+            }
+            currentOverlappedObject = newOverlapped;
+            // 새로 겹친 대상은 확대
+            if (currentOverlappedObject != null)
+            {
+                currentOverlappedObject.transform.localScale = Vector3.one * 1.1f;
+            }
+        }
     }
-    public GameObject[] GetOverlappedObject()
+    public override void OnEndDrag(PointerEventData eventData)
     {
-        List<GameObject> targetList = new List<GameObject>();
+        base.OnEndDrag(eventData);
+        if (GetOverlappedObject() != null)
+        {
+            Debug.Log("합성");
+        }
+    }
+    public GameObject GetOverlappedObject()
+    {
         // 1. 내 월드 사각형 구하기
         Vector3[] myCorners = new Vector3[4];
         rectTransform.GetWorldCorners(myCorners);
@@ -54,21 +76,21 @@ public class MergeableObject : DraggableItem
             // Overlaps로 겹쳤는지 확인! 겹쳤다면 그 게임오브젝트를 즉시 반환!
             if (myRect.Overlaps(targetRect))
             {
-                targetList.Add(targetObject.gameObject);
+                return targetObject.gameObject;
             }
         }
-        return targetList.ToArray(); // 겹친 오브젝트가 없음
+        return null;
     }
 
     private void Update()
     {
-        if (!isMerging) return;
+        if (!isUsing) return;
 
         currentMergingTime += Time.deltaTime;
 
         if (currentMergingTime >= mergingTime)
         {
-            Debug.Log("합성");
+            Debug.Log("사용");
         }
     }
 }

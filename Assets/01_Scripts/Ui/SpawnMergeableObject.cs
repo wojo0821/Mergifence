@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,7 +15,7 @@ public class SpawnMergeableObject : DraggableItem
         if (eventData.pointerCurrentRaycast.gameObject != null && eventData.pointerCurrentRaycast.gameObject.CompareTag("CanDrop"))
         {
             GameObject newObject = Instantiate(mergeableObjectPrefab, parentCanvas.transform);
-            newObject.transform.position = eventData.position;
+            newObject.transform.position = transform.position;
             newObject.transform.SetAsLastSibling();
             newObject.GetComponent<DraggableItem>().SetText(text.text);
 
