@@ -9,7 +9,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     protected RectTransform rectTransform;
     protected Image image;
-    protected TextMeshProUGUI text;
+    public TextMeshProUGUI text;
     protected Canvas parentCanvas;
 
     [SerializeField] private AudioClip clickSfxDown = null;

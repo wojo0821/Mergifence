@@ -32,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6730881318416821597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5, y: 0}
-  m_SizeDelta: {x: 174.01, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9867385117422040
 CanvasRenderer:
@@ -150,8 +150,9 @@ GameObject:
   - component: {fileID: 6730881318416821597}
   - component: {fileID: 2175934388206941761}
   - component: {fileID: 4428218881396049322}
-  - component: {fileID: 7544626513472800062}
   - component: {fileID: 6804486185994181904}
+  - component: {fileID: 4267891507505239215}
+  - component: {fileID: 2045902272553571044}
   m_Layer: 5
   m_Name: MergeableObject
   m_TagString: Untagged
@@ -176,8 +177,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -142.29288, y: 23.8}
-  m_SizeDelta: {x: 214.01, y: 69.4509}
+  m_AnchoredPosition: {x: -145.1, y: 23.8}
+  m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2175934388206941761
 CanvasRenderer:
@@ -217,21 +218,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7544626513472800062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3999763245900961724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf57f09763effc54aa7fb04a8554a0c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TextImageWidthAuto
-  padding: 40
-  minWidth: 50
-  height: 55
 --- !u!114 &6804486185994181904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +230,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6537d24dfe3e26446b1ed12cf846bbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MergeableObject
+  text: {fileID: 4335652493642589516}
   clickSfxDown: {fileID: 8300000, guid: 6f42c429d1600254ea9858a3e0af6e2d, type: 3}
   clickSfxUp: {fileID: 8300000, guid: bb87922bc570e5b498b20f10cd61651e, type: 3}
   mergingTime: 0
   objectUsingClip: {fileID: 8300000, guid: 0cda3f2c43602ea42bd2a82da9aae4ba, type: 3}
+--- !u!114 &4267891507505239215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999763245900961724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 20
+    m_Right: 18
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &2045902272553571044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999763245900961724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
