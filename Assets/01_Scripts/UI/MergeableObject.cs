@@ -12,9 +12,12 @@ public class MergeableObject : DraggableItem
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     // 합성 진행 중 여부 플래그
     public bool isMerging { get; private set; } = false;
+=======
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
 =======
 >>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
 =======
@@ -55,6 +58,7 @@ public class MergeableObject : DraggableItem
         isMerging = false;
         AudioManager.Instance.StopHoldSound();
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -129,6 +133,10 @@ public class MergeableObject : DraggableItem
     public GameObject[] GetOverlappedObject()
     {
 >>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+    public GameObject[] GetOverlappedObject()
+    {
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
         List<GameObject> targetList = new List<GameObject>();
         // 1. 내 월드 사각형 구하기
         Vector3[] myCorners = new Vector3[4];
@@ -158,7 +166,11 @@ public class MergeableObject : DraggableItem
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!isUsing || isMerging) return;
+=======
+        if (!isMerging) return;
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
 =======
         if (!isMerging) return;
 >>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)

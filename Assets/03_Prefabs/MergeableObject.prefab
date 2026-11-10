@@ -237,6 +237,9 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
 >>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
 =======
 >>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
@@ -260,6 +263,7 @@ MonoBehaviour:
   clickSfxDown: {fileID: 8300000, guid: 6f42c429d1600254ea9858a3e0af6e2d, type: 3}
   clickSfxUp: {fileID: 8300000, guid: bb87922bc570e5b498b20f10cd61651e, type: 3}
   mergingTime: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -305,6 +309,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
   m_VerticalFit: 0
+=======
+  mergingClip: {fileID: 8300000, guid: 0cda3f2c43602ea42bd2a82da9aae4ba, type: 3}
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
 =======
   mergingClip: {fileID: 8300000, guid: 0cda3f2c43602ea42bd2a82da9aae4ba, type: 3}
 >>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
