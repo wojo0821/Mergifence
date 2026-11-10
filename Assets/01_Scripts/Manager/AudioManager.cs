@@ -10,7 +10,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip[] bgmClips = null;
     private int[] bgmOrder;
     private int currentBgmIndex = 0;
-    private bool isAppFocused = true;
 
     private void Awake()
     {
@@ -79,13 +78,8 @@ public class AudioManager : MonoBehaviour
         currentBgmIndex++;
         PlayBgm();
     }
-    private void OnApplicationFocus(bool hasFocus)
-    {
-        isAppFocused = hasFocus;
-    }
     private void Update()
     {
-        if (!isAppFocused && !Application.runInBackground) return;
         if (!BgmSource.isPlaying)
         {
             PlayNextBgm();

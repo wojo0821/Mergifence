@@ -218,6 +218,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
+<<<<<<< HEAD
+=======
+--- !u!114 &7544626513472800062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999763245900961724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf57f09763effc54aa7fb04a8554a0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextImageWidthAuto
+  padding: 40
+  minWidth: 50
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
 --- !u!114 &6804486185994181904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +260,10 @@ MonoBehaviour:
   clickSfxDown: {fileID: 8300000, guid: 6f42c429d1600254ea9858a3e0af6e2d, type: 3}
   clickSfxUp: {fileID: 8300000, guid: bb87922bc570e5b498b20f10cd61651e, type: 3}
   mergingTime: 0
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
   objectUsingClip: {fileID: 8300000, guid: 0cda3f2c43602ea42bd2a82da9aae4ba, type: 3}
 --- !u!114 &4267891507505239215
 MonoBehaviour:
@@ -275,3 +305,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
   m_VerticalFit: 0
+=======
+  mergingClip: {fileID: 8300000, guid: 0cda3f2c43602ea42bd2a82da9aae4ba, type: 3}
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+  mergingClip: {fileID: 8300000, guid: 0cda3f2c43602ea42bd2a82da9aae4ba, type: 3}
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+  mergingClip: {fileID: 8300000, guid: 0cda3f2c43602ea42bd2a82da9aae4ba, type: 3}
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+  mergingClip: {fileID: 8300000, guid: 0cda3f2c43602ea42bd2a82da9aae4ba, type: 3}
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)

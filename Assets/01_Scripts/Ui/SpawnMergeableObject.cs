@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -15,7 +16,16 @@ public class SpawnMergeableObject : DraggableItem
         MergeableObject draggable = newObject.GetComponent<MergeableObject>();
         if (draggable != null)
         {
+<<<<<<< HEAD
             draggable.SetText(text.text);
+=======
+            GameObject newObject = Instantiate(mergeableObjectPrefab, parentCanvas.transform);
+            newObject.transform.position = eventData.position;
+            newObject.transform.SetAsLastSibling();
+            newObject.GetComponent<DraggableItem>().SetText(text.text);
+
+            AudioManager.Instance.PlaySfx(dropSfx);
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
         }
         // 3. 드래그 대상을 새로 생성된 오브젝트로 위임
         eventData.pointerDrag = newObject;

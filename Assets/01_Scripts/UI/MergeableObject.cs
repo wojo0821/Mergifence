@@ -5,27 +5,39 @@ using UnityEngine.EventSystems;
 public class MergeableObject : DraggableItem
 {
     private GameObject[] overlappedObjects;
-    private bool isUsing = false;
+    private bool isMerging = false;
     [SerializeField] private float mergingTime = 0;
-    [SerializeField] private AudioClip objectUsingClip = null;
+    [SerializeField] private AudioClip mergingClip = null;
     private float currentMergingTime;
-    private GameObject currentOverlappedObject = null;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 
     // 합성 진행 중 여부 플래그
     public bool isMerging { get; private set; } = false;
+=======
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         if (isMerging) return;
         base.OnPointerDown(eventData);
-        isUsing = true;
-        AudioManager.Instance.PlayHoldSound(objectUsingClip);
+
+        if (GetOverlappedObject().Length > 0)
+        {
+            isMerging = true;
+            AudioManager.Instance.PlayHoldSound(mergingClip);
+        }
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
         base.OnPointerUp(eventData);
-        isUsing = false;
+        isMerging = false;
         AudioManager.Instance.StopHoldSound();
     }
 
@@ -40,27 +52,13 @@ public class MergeableObject : DraggableItem
         if (isMerging) return;
         base.OnDrag(eventData);
 
-        isUsing = false;
+        isMerging = false;
         AudioManager.Instance.StopHoldSound();
-
-        // 한 번만 호출해서 변수에 담기
-        GameObject newOverlapped = GetOverlappedObject();
-        // 겹치는 대상이 바뀌었을 때만 스케일 처리 (A -> 없음, 없음 -> A, A -> B)
-        if (currentOverlappedObject != newOverlapped)
-        {
-            // 이전에 겹쳤던 대상은 원래 크기로 복구
-            if (currentOverlappedObject != null)
-            {
-                currentOverlappedObject.transform.localScale = Vector3.one;
-            }
-            currentOverlappedObject = newOverlapped;
-            // 새로 겹친 대상은 확대
-            if (currentOverlappedObject != null)
-            {
-                currentOverlappedObject.transform.localScale = Vector3.one * 1.1f;
-            }
-        }
     }
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 
     public override void OnEndDrag(PointerEventData eventData)
     {
@@ -115,7 +113,23 @@ public class MergeableObject : DraggableItem
     }
 
     public GameObject GetOverlappedObject()
+=======
+    public GameObject[] GetOverlappedObject()
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
     {
+=======
+    public GameObject[] GetOverlappedObject()
+    {
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+    public GameObject[] GetOverlappedObject()
+    {
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+    public GameObject[] GetOverlappedObject()
+    {
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+        List<GameObject> targetList = new List<GameObject>();
         // 1. 내 월드 사각형 구하기
         Vector3[] myCorners = new Vector3[4];
         rectTransform.GetWorldCorners(myCorners);
@@ -132,21 +146,37 @@ public class MergeableObject : DraggableItem
             // Overlaps로 겹쳤는지 확인! 겹쳤다면 그 게임오브젝트를 즉시 반환!
             if (myRect.Overlaps(targetRect))
             {
-                return targetObject.gameObject;
+                targetList.Add(targetObject.gameObject);
             }
         }
-        return null;
+        return targetList.ToArray(); // 겹친 오브젝트가 없음
     }
 
     private void Update()
     {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
         if (!isUsing || isMerging) return;
+=======
+        if (!isMerging) return;
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+        if (!isMerging) return;
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+        if (!isMerging) return;
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
+=======
+        if (!isMerging) return;
+>>>>>>> parent of 560d699 (refactor: ui재구성 및 스크립트 재구성)
 
         currentMergingTime += Time.deltaTime;
 
         if (currentMergingTime >= mergingTime)
         {
-            Debug.Log("사용");
+            Debug.Log("합성");
         }
     }
 }

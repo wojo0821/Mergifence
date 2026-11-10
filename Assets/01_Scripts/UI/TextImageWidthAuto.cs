@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 
 [ExecuteAlways] // 씬뷰에서도 작동
-public class TextImageSizeAuto : MonoBehaviour
+public class TextImageWidthAuto : MonoBehaviour
 {
     //TMP 글자 Width에 따라서 Image의 Width를 늘림
 
@@ -13,7 +13,6 @@ public class TextImageSizeAuto : MonoBehaviour
     [Header("설정")]
     [SerializeField] private float padding = 40f;
     [SerializeField] private float minWidth = 50f;
-    [SerializeField] private float height = 55f;
 
     private void Awake()
     {
@@ -43,6 +42,6 @@ public class TextImageSizeAuto : MonoBehaviour
         float textWidth = textComponent.preferredWidth;
         textComponent.rectTransform.sizeDelta = new Vector2(textWidth, textComponent.rectTransform.sizeDelta.y);
         float finalImageWidth = Mathf.Max(minWidth, textWidth + padding);
-        imageRectTransform.sizeDelta = new Vector2(finalImageWidth, height);
+        imageRectTransform.sizeDelta = new Vector2(finalImageWidth, imageRectTransform.sizeDelta.y);
     }
 }
